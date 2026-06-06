@@ -36,6 +36,11 @@ export async function POST(req: Request) {
   );
   // console.log(result, "ayush result");
 
+  fs.writeFile(
+    "./app/data/resume-embeddings.json",
+    JSON.stringify(result, null, 2),
+  );
+
   return Response.json({
     chunksSize: chunks.length,
     success: true,
